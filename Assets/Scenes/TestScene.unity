@@ -941,6 +941,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PacketPad
   angles: []
   launchDistance: 14.77
+  redLight: {fileID: 2100000, guid: 403dfe1dfa42f8e448f7a9e6d2e3e9e5, type: 2}
+  greenLight: {fileID: 2100000, guid: a5f4651a52f1e3447b2e11e9a36c54db, type: 2}
 --- !u!1 &926064651226555343
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +992,7 @@ Transform:
   m_Children:
   - {fileID: 6147661442408105241}
   m_Father: {fileID: 6948529382083221556}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98022, y: 0, z: 0}
 --- !u!65 &1889176741681040415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1137,7 +1139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6948529382083221556}
-  m_LocalEulerAnglesHint: {x: 89.98021, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98022, y: 0, z: 0}
 --- !u!1 &4842291669373612681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1170,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1889176741681040414}
-  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 83.40736, y: 180.00005, z: 180.00005}
 --- !u!4 &6544228043407355868
 Transform:
   m_ObjectHideFlags: 0
