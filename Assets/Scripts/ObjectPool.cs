@@ -7,12 +7,18 @@ public static class ObjectPool {
 	static List<GameObject> activePackets = new List<GameObject>(), pooledPackets = new List<GameObject>();
 	static List<GameObject> activeRats = new List<GameObject>(), pooledRats = new List<GameObject>();
 
+	public enum ObjectType {
+		Packet,
+		Rat
+	}
+
 	public static GameObject FetchObject(ObjectType objType, Vector3 position, Quaternion rotation) {
 		GameObject obj = null;
 
 		switch (objType) {//Enable phsyics and script when grabbing pooled objects
 			case ObjectType.Packet:
 				if (pooledPackets.Count > 0) {
+					//Debug.Log("Grabbing Packet!");
 					obj = pooledPackets[0];
 					activePackets.Add(obj);
 					pooledPackets.RemoveAt(0);
@@ -25,6 +31,7 @@ public static class ObjectPool {
 					obj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 				}
 				else {
+					//Debug.Log("Creating Packet!");
 					obj = Object.Instantiate(PacketPrefab, new Vector3(0, -10, 0), Quaternion.identity);
 				}
 				break;
@@ -53,18 +60,17 @@ public static class ObjectPool {
 		return obj;
 	}
 
-	public enum ObjectType {
-		Packet,
-		Rat
-	}
-
 	public static void PoolObject(GameObject obj, ObjectType objType) {//Disable phsyics and script
 		switch (objType) {//Enable phsyics and script when grabbing pooled objects
 			case ObjectType.Packet:
+				//Debug.Log("Pooling Packet!");
 				obj.GetComponent<Packet>().enabled = false;
+				pooledPackets.Add(obj);
 				break;
 			case ObjectType.Rat:
+				Debug.Log("Pooling Rat!");
 				obj.GetComponent<Enemy>().enabled = false;
+				pooledRats.Add(obj);
 				break;
 			default:
 				Debug.Log("Object swallowed by the abyss!");
